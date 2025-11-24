@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MathHub – Esercizi</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="logo">Math<span>Hub</span></div>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About me</a>
+      <a href="index.html#scelgomatematica">Scelgo Matematica</a>
+      <a href="exercises.html">Esercizi</a>
+    </nav>
+  </header>
+
+  <section class="section section-light">
+    <div class="container">
+      <h2>Esercizi e Math Agent</h2>
+
+      <!-- AGENT AREA -->
+      <div class="agent-area">
+        <div class="agent-text">
+          <h3>Math Agent</h3>
+          <p>
+            Qui in futuro puoi collegare un vero agente di matematica (per esempio un’API di
+            intelligenza artificiale) che risolve qualsiasi esercizio che inserisci.
+            Per ora è un <em>demo</em>: scrivi il testo del problema e vedi una risposta placeholder.
+          </p>
+        </div>
+
+        <form id="agent-form" class="agent-form">
+          <label for="agent-input">Scrivi qui il tuo problema di matematica:</label>
+          <textarea id="agent-input" placeholder="Es: Risolvi la disequazione (x-1)(x+2) &gt; 0"></textarea>
+          <button type="submit" class="btn-primary small-btn">Chiedi al Math Agent</button>
+          <div id="agent-output" class="agent-output">
+            La risposta del tuo agente comparirà qui.
+          </div>
+        </form>
+      </div>
+
+      <h3 class="ex-subtitle">Esercizi per argomento (ispirati a Scelgo Matematica)</h3>
+
+      <div class="exercise-grid">
+
+        <article class="exercise-card">
+          <h4>Equazioni e disequazioni</h4>
+          <ol>
+            <li>Risolvi la disequazione: \((2x - 3)(x + 1) &gt; 0\).</li>
+            <li>Risolvi la disequazione fratta: \(\dfrac{x - 2}{x + 3} \le 0\).</li>
+            <li>Risolvi l’equazione con valore assoluto: \(|2x - 5| = 3\).</li>
+          </ol>
+        </article>
+
+        <article class="exercise-card">
+          <h4>Goniometria</h4>
+          <ol>
+            <li>Risolvi \(\sin x = \frac{\sqrt{3}}{2}\) per \(x \in [0, 2\pi]\).</li>
+            <li>Risolvi \(2\cos x - 1 = 0\) per \(x \in \mathbb{R}\).</li>
+            <li>Risolvi \(\tan x &gt; 1\) per \(x \in [0, 2\pi]\).</li>
+          </ol>
+        </article>
+
+        <article class="exercise-card">
+          <h4>Analisi e studio di funzione</h4>
+          <ol>
+            <li>Studia il dominio di \(f(x) = \dfrac{1}{x^2 - 4}\).</li>
+            <li>Calcola i limiti \(\lim_{x \to 2^-} \dfrac{1}{x-2}\) e \(\lim_{x \to 2^+} \dfrac{1}{x-2}\).</li>
+            <li>Trova gli asintoti di \(g(x) = \dfrac{3x^2 - 1}{x - 1}\).</li>
+          </ol>
+        </article>
+
+        <article class="exercise-card">
+          <h4>Serie e trasformata di Laplace</h4>
+          <ol>
+            <li>Studia la convergenza di \(\sum_{n=1}^{\infty} \frac{1}{n^2}\).</li>
+            <li>Studia la convergenza di \(\sum_{n=1}^{\infty} \frac{1}{n}\).</li>
+            <li>Calcola la trasformata di Laplace di \(f(t) = e^{2t}\).</li>
+          </ol>
+        </article>
+
+        <article class="exercise-card">
+          <h4>Calcolo combinatorio</h4>
+          <ol>
+            <li>Quante disposizioni semplici di classe 3 con 5 oggetti distinti?</li>
+            <li>Quante combinazioni di 4 oggetti si ottengono scegliendo da 10, senza ripetizioni?</li>
+            <li>In quanti modi si possono mettere in fila 6 persone diverse?</li>
+          </ol>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>© 2025 – Il mio sito di matematica</p>
+  </footer>
+
+  <script>
+    const agentForm = document.getElementById("agent-form");
+    const agentInput = document.getElementById("agent-input");
+    const agentOutput = document.getElementById("agent-output");
+
+    agentForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+      const question = agentInput.value.trim();
+
+      if (!question) {
+        agentOutput.textContent = "Per favore scrivi prima un problema di matematica 🙂";
+        return;
+      }
+
+      // Qui puoi collegare una vera API in futuro
+      agentOutput.innerHTML =
+        "<strong>Demo:</strong> hai chiesto:<br><em>" +
+        question +
+        "</em><br><br>" +
+        "Qui potrai mostrare la soluzione generata dal tuo agente di matematica.";
+    });
+  </script>
+
+</body>
+</html>
