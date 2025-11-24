@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MathHub – Esercizi</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Icone per il widget -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="logo">Math<span>Hub</span></div>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About me</a>
+      <a href="index.html#scelgomatematica">Scelgo Matematica</a>
+      <a href="exercises.html">Esercizi</a>
+    </nav>
+  </header>
+
+  <section class="section section-light">
+    <div class="container">
+      <h2>Esercizi e Math Agent</h2>
+
+      <!-- AGENT AREA PRINCIPALE -->
+      <div class="agent-area">
+        <div class="agent-text">
+          <h3>Math Agent <span style="font-size:0.6em; background:#FFC300; color:#1D2D44; padding:2px 8px; border-radius:10px;">AI Powered</span></h3>
+          <p>
+            Hai bisogno di aiuto immediato? Scrivi qui il tuo problema e il nostro Tutor AI ti guiderà passo dopo passo.
+          </p>
+          
+          <form id="agent-form" class="agent-form">
+            <label for="agent-input">Problema di Matematica:</label>
+            <textarea id="agent-input" placeholder="Esempio: Risolvi per x: 3(x+2) = 5x - 4"></textarea>
+
+            <label for="mode-select">Modalità Tutor:</label>
+            <select id="mode-select">
+                <option value="teacher_mode">Tutor Professionale (Passo-Passo)</option>
+                <option value="explain_like_im_10">Spiega come se avessi 10 anni</option>
+                <option value="walk_me_slowly">Guida Lentamente (Micro-Passi)</option>
+                <option value="strict_examiner">Esaminatore Rigoroso (Notazione Formale)</option>
+            </select>
+
+            <button type="submit" class="button btn-primary" style="border:none; cursor:pointer;">Chiedi al Math Agent</button>
+          </form>
+
+          <div class="agent-output" id="agent-output" style="display:none;"></div>
+          <div class="agent-output loading-indicator" id="loading-indicator" style="display:none;">
+            <i class="fas fa-spinner fa-spin"></i> Calcolo in corso...
+          </div>
+        </div>
+      </div>
+
+      <hr class="section-divider">
+
+      <!-- NUOVA SEZIONE A TENDINA (HOVER EFFECT) -->
+      <h3 class="ex-subtitle">Raccolta Esercizi per Argomento</h3>
+      <p style="margin-bottom: 20px;">Passa il cursore su un argomento per mostrare gli esercizi.</p>
+      
+      <div class="accordion-container">
+
+        <!-- Abbiamo avvolto ogni blocco in un "topic-wrapper" per gestire l'hover -->
+
+        <!-- 1. Equazioni e Disequazioni -->
+        <div class="topic-wrapper">
+            <button class="accordion">1. Equazioni e Disequazioni <i class="fas fa-chevron-down"></i></button>
+            <div class="panel">
+              <ol class="exercise-list">
+                <li>Risolvi l’equazione: \( 2x - 5 = 3x + 7 \)</li>
+                <li>Risolvi la disequazione: \( (x - 4)(x + 1) > 0 \)</li>
+                <li>Risolvi l’equazione con valore assoluto: \( |3x + 2| = 7 \)</li>
+                <li>Risolvi la disequazione fratta: \( \frac{x - 3}{x + 2} \le 0 \)</li>
+                <li>Risolvi: \( x^2 - 5x + 6 = 0 \)</li>
+                <li>Trova le soluzioni di: \( |x - 4| < 3 \)</li>
+                <li>Risolvi l’equazione irrazionale: \( \sqrt{x + 5} = x - 1 \)</li>
+                <li>Determina il segno del trinomio: \( 2x^2 - 3x - 5 \)</li>
+                <li>Risolvi la disequazione: \( \frac{2x + 1}{x - 1} > 1 \)</li>
+                <li>Risolvi: \( \frac{1}{x} = 4 - x \)</li>
+              </ol>
+            </div>
+        </div>
+
+        <!-- 2. Goniometria -->
+        <div class="topic-wrapper">
+            <button class="accordion">2. Goniometria – Equazioni e Disequazioni <i class="fas fa-chevron-down"></i></button>
+            <div class="panel">
+              <ol class="exercise-list">
+                <li>Trova tutte le soluzioni di: \( \sin x = \frac{1}{2} \)</li>
+                <li>Risolvi: \( \cos x = -\frac{\sqrt{2}}{2} \)</li>
+                <li>Risolvi: \( 2\sin x - 1 = 0 \)</li>
+                <li>Risolvi: \( \tan x = \sqrt{3} \)</li>
+                <li>Risolvi la disequazione: \( \sin x > 0 \) per \( x \in [0, 2\pi] \)</li>
+                <li>Risolvi: \( \cos(2x) = \frac{1}{2} \)</li>
+                <li>Risolvi l’equazione: \( \sin(x + \frac{\pi}{4}) = \frac{\sqrt{2}}{2} \)</li>
+                <li>Risolvi: \( \tan(3x) = 0 \)</li>
+                <li>Trova le soluzioni di: \( 2\cos^2 x - 1 = 0 \)</li>
+                <li>Risolvi: \( \sin x + \cos x = 1 \)</li>
+              </ol>
+            </div>
+        </div>
+
+        <!-- 3. Studio di Funzione -->
+        <div class="topic-wrapper">
+            <button class="accordion">3. Studio di Funzione / Analisi <i class="fas fa-chevron-down"></i></button>
+            <div class="panel">
+              <ol class="exercise-list">
+                <li>Trova il dominio di: \( f(x) = \sqrt{4 - x^2} \)</li>
+                <li>Calcola: \( \lim_{x \to 0} \frac{e^x - 1}{x} \)</li>
+                <li>Trova gli asintoti di: \( f(x) = \frac{x^2 - 4}{x - 1} \)</li>
+                <li>Determina il segno di: \( f(x) = \frac{x + 2}{x - 3} \)</li>
+                <li>Studia la monotonia di: \( f(x) = x^3 - 6x \)</li>
+                <li>Calcola la derivata prima: \( f(x) = \ln(x^2 + 1) \)</li>
+                <li>Trova i punti critici di: \( f(x) = x^4 - 4x^2 \)</li>
+                <li>Calcola: \( \lim_{x\to +\infty} \frac{3x - 1}{x + 5} \)</li>
+                <li>Determina concavità e flessi di: \( f(x) = x^3 + x \)</li>
+                <li>Studia il dominio di: \( f(x) = \frac{1}{\sqrt{x - 2}} \)</li>
+              </ol>
+            </div>
+        </div>
+
+        <!-- 4. Serie Numeriche -->
+        <div class="topic-wrapper">
+            <button class="accordion">4. Serie Numeriche <i class="fas fa-chevron-down"></i></button>
+            <div class="panel">
+              <ol class="exercise-list">
+                <li>Studia la convergenza della serie: \( \sum_{n=1}^{\infty} \frac{1}{n} \)</li>
+                <li>Studia la convergenza della serie: \( \sum_{n=1}^{\infty} \frac{1}{n^2} \)</li>
+                <li>Verifica la convergenza di: \( \sum \frac{1}{n \ln n} \)</li>
+                <li>Studia la convergenza di: \( \sum (-1)^n \frac{1}{n} \)</li>
+                <li>Studia la serie: \( \sum \frac{2^n}{3^n} \)</li>
+                <li>Studia: \( \sum \frac{n+1}{n^2} \)</li>
+                <li>Studia la serie geometrica: \( \sum 5 \left(\frac{1}{4}\right)^n \)</li>
+                <li>Verifica convergenza: \( \sum \frac{n}{n^3+1} \)</li>
+                <li>Studia la serie: \( \sum (-1)^n \frac{n}{n+1} \)</li>
+                <li>Studia la serie: \( \sum \frac{1}{n^{1.5}} \)</li>
+              </ol>
+            </div>
+        </div>
+
+        <!-- 5. Trasformata di Laplace -->
+        <div class="topic-wrapper">
+            <button class="accordion">5. Trasformata di Laplace <i class="fas fa-chevron-down"></i></button>
+            <div class="panel">
+              <ol class="exercise-list">
+                <li>Calcola \( \mathcal{L}\{1\} \)</li>
+                <li>Calcola \( \mathcal{L}\{t\} \)</li>
+                <li>Calcola \( \mathcal{L}\{e^{3t}\} \)</li>
+                <li>Calcola \( \mathcal{L}\{\sin t\} \)</li>
+                <li>Calcola \( \mathcal{L}\{\cos 2t\} \)</li>
+                <li>Calcola \( \mathcal{L}\{t^2\} \)</li>
+                <li>Calcola \( \mathcal{L}\{e^{-2t}\sin t\} \)</li>
+                <li>Calcola \( \mathcal{L}\{u(t-3)\} \) (funzione a gradino)</li>
+                <li>Calcola \( \mathcal{L}\{e^{at}\cos(bt)\} \)</li>
+                <li>Calcola \( \mathcal{L}\{t e^{-t}\} \)</li>
+              </ol>
+            </div>
+        </div>
+
+        <!-- 6. Calcolo Combinatorio -->
+        <div class="topic-wrapper">
+            <button class="accordion">6. Calcolo Combinatorio <i class="fas fa-chevron-down"></i></button>
+            <div class="panel">
+              <ol class="exercise-list">
+                <li>Quante disposizioni semplici di 4 elementi presi da 7?</li>
+                <li>Quante permutazioni di 6 elementi?</li>
+                <li>Quante combinazioni di 3 elementi presi da 10?</li>
+                <li>In quanti modi puoi ordinare le lettere di “MATEMATICA”?</li>
+                <li>Quante combinazioni con ripetizione di 4 oggetti presi da 5?</li>
+                <li>In quanti modi puoi formare una commissione di 5 persone da un gruppo di 12?</li>
+                <li>Quanti anagrammi diversi ha la parola “LIVELLO”?</li>
+                <li>Quanti codici di 4 cifre puoi formare con cifre 0–9?</li>
+                <li>In quanti modi puoi scegliere 2 carte da un mazzo di 52?</li>
+                <li>Quante permutazioni di 8 elementi hanno esattamente 3 posizioni fisse?</li>
+              </ol>
+            </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- WIDGET FLUTTUANTE MATH AGENT -->
+  <div class="floating-agent-container">
+    <!-- Icona che appare sempre -->
+    <div class="agent-icon" id="agent-icon" onclick="toggleChat()">
+        <i class="fas fa-robot"></i>
+    </div>
+    
+    <!-- Finestra Chat Popup -->
+    <div class="chat-popup" id="chat-popup">
+        <div class="chat-header">
+            <span>Math Agent Chat</span>
+            <span class="close-chat" onclick="toggleChat()">&times;</span>
+        </div>
+        <div class="chat-body" id="chat-body">
+            <div class="chat-message bot-message">
+                Ciao! Sono il tuo assistente. Hai un esercizio al volo?
+            </div>
+        </div>
+        <div class="chat-footer">
+            <input type="text" id="mini-agent-input" placeholder="Scrivi equazione..." />
+            <button onclick="sendMiniChat()"><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p>© 2025 – MathHub</p>
+  </footer>
+
+  <script>
+    // --- MATHJAX LOADING ---
+    if (typeof MathJax === 'undefined') {
+        const script = document.createElement('script');
+        script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+        script.async = true;
+        document.head.appendChild(script);
+    }
+
+    // --- MAIN AGENT LOGIC ---
+    const agentForm = document.getElementById("agent-form");
+    const agentInput = document.getElementById("agent-input");
+    const agentOutput = document.getElementById("agent-output");
+    const modeSelect = document.getElementById("mode-select");
+    const loadingIndicator = document.getElementById("loading-indicator");
+
+    async function callMathAgent(question, mode, outputElement, loaderElement) {
+        const apiUrl = 'http://127.0.0.1:5000/api/solve';
+        if(loaderElement) loaderElement.style.display = 'block';
+        if(outputElement) outputElement.style.display = 'none';
+
+        try {
+            const response = await fetch(apiUrl, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ problem: question, mode: mode }),
+            });
+            const data = await response.json();
+            if(loaderElement) loaderElement.style.display = 'none';
+            
+            if (response.ok) return data.solution;
+            else return "Errore: " + (data.solution || data.error);
+        } catch (error) {
+            if(loaderElement) loaderElement.style.display = 'none';
+            console.error(error);
+            return "Errore di connessione al server.";
+        }
+    }
+
+    agentForm.addEventListener("submit", async function (e) {
+        e.preventDefault();
+        const question = agentInput.value.trim();
+        if (!question) return;
+        const answer = await callMathAgent(question, modeSelect.value, agentOutput, loadingIndicator);
+        agentOutput.innerHTML = `<strong>Risposta:</strong><div class="code-block" style="white-space: pre-wrap;">${answer}</div>`;
+        agentOutput.style.display = 'block';
+        if (typeof MathJax !== 'undefined') MathJax.typesetPromise([agentOutput]);
+    });
+
+    // --- FLOATING WIDGET LOGIC ---
+    function toggleChat() {
+        const popup = document.getElementById("chat-popup");
+        if (popup.style.display === "flex") popup.style.display = "none";
+        else popup.style.display = "flex";
+    }
+
+    async function sendMiniChat() {
+        const input = document.getElementById("mini-agent-input");
+        const body = document.getElementById("chat-body");
+        const question = input.value.trim();
+        if (!question) return;
+
+        body.innerHTML += `<div class="chat-message user-message">${question}</div>`;
+        input.value = "";
+        body.scrollTop = body.scrollHeight; 
+
+        const loadingId = "loading-" + Date.now();
+        body.innerHTML += `<div class="chat-message bot-message" id="${loadingId}">...</div>`;
+        
+        const answer = await callMathAgent(question, "teacher_mode", null, null);
+        
+        const loadingDiv = document.getElementById(loadingId);
+        loadingDiv.innerHTML = answer; 
+        if (typeof MathJax !== 'undefined') MathJax.typesetPromise([loadingDiv]);
+        body.scrollTop = body.scrollHeight;
+    }
+
+    document.getElementById("mini-agent-input").addEventListener("keypress", function(event) {
+        if (event.key === "Enter") sendMiniChat();
+    });
+  </script>
+
+</body>
+</html>
+
