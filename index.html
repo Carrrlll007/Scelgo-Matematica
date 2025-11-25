@@ -6,112 +6,165 @@
   <title>MathHub – Home</title>
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- MathJax per il rendering delle formule -->
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
 </head>
 <body>
 
-  <!-- NAVBAR -->
   <header class="navbar">
     <div class="logo">Math<span>Hub</span></div>
 
     <nav class="nav-links">
       <a href="index.html">Home</a>
       <a href="about.html">About me</a>
-      <a href="#scelgomatematica">Scelgo Matematica</a>
-      <a href="exercises.html">Esercizi</a>
+      <a href="#scelgomatematica">Mio Studio</a>
+      <!-- Nuova struttura di navigazione con dropdown per Argomenti -->
+      <div class="dropdown">
+        <span class="dropbtn">Argomenti</span>
+        <div class="dropdown-content">
+          <!-- Livello 1: Scegli l'Argomento (Topics placeholder) -->
+          <div class="dropdown-topic">
+            <span class="topic-title">Analisi Matematica I</span>
+            <div class="dropdown-submenu">
+              <!-- Livello 2: Teoria ed Esercizi -->
+              <a href="theory_analisi1.html">Teoria</a>
+              <a href="exercises.html?topic=Analisi1">Esercizi</a>
+            </div>
+          </div>
+          <div class="dropdown-topic">
+            <span class="topic-title">Geometria Analitica</span>
+            <div class="dropdown-submenu">
+              <a href="theory_geometria.html">Teoria</a>
+              <a href="exercises.html?topic=Geometria">Esercizi</a>
+            </div>
+          </div>
+          <div class="dropdown-topic">
+            <span class="topic-title">Algebra Lineare</span>
+            <div class="dropdown-submenu">
+              <a href="theory_algebra.html">Teoria</a>
+              <a href="exercises.html?topic=Algebra">Esercizi</a>
+            </div>
+          </div>
+          <a href="exercises.html">Math Agent</a> <!-- Link diretto al Math Agent -->
+        </div>
+      </div>
     </nav>
   </header>
 
-  <!-- HERO / HOME -->
   <section class="section hero">
     <div class="hero-content">
       <h1>Ciao, benvenuto nel mio sito di matematica!</h1>
+      <p class="tagline">La matematica spiegata come avrei voluto impararla io.</p>
       <p>
         Qui raccolgo quello che faccio: chi sono, cosa studio e
-        soprattutto una sezione dedicata al canale
-        <strong>Scelgo Matematica</strong>, con gli argomenti che puoi
-        trovare nelle sue video-lezioni.
+        soprattutto una selezione di appunti e riflessioni. Spero ti sia utile!
       </p>
-      <a href="#scelgomatematica" class="btn-primary">Vai alla matematica ➜</a>
     </div>
   </section>
 
-  <!-- SCELGO MATEMATICA -->
   <section id="scelgomatematica" class="section section-dark">
     <div class="container">
-      <h2>Canale YouTube: Scelgo Matematica</h2>
-      <p class="intro">
-        <a href="https://www.youtube.com/@scelgomatematica" target="_blank" rel="noopener noreferrer">
-          Scelgo Matematica
-        </a>
-        è un canale con video-lezioni pensate per studenti delle scuole superiori e dei primi anni
-        universitari. In base ai titoli dei video, gli argomenti principali sono:
-      </p>
+      <h2>Mio Studio (Appunti e Riflessioni)</h2>
+      <div class="topic-grid">
 
-      <div class="topics-grid">
-        <article class="topic-card">
-          <h3>Equazioni e disequazioni</h3>
+        <article class="topic-card" contenteditable="false">
+          <h3>Nozioni base</h3>
           <ul>
-            <li>Disequazioni di I grado</li>
-            <li>Disequazioni di grado superiore al II</li>
-            <li>Disequazioni razionali fratte</li>
-            <li>Disequazioni irrazionali</li>
-            <li>Equazioni e disequazioni con valori assoluti</li>
+            <li>**Quick Rule:** Mai dividere per zero. Ricorda: $ \frac{k}{0} $ è indefinita, $ \frac{0}{0} $ è indeterminata.</li>
+            <li>Funzioni: Dominio, codominio e insieme immagine (concetti chiave).</li>
+            <li>Limiti e continuità (la base per il resto).</li>
           </ul>
         </article>
 
-        <article class="topic-card">
-          <h3>Goniometria</h3>
+        <article class="topic-card" contenteditable="false">
+          <h3>Analisi Matematica I <span style="font-size: 0.7em; color: #FFC300;">(Derivate e Integrali)</span></h3>
           <ul>
-            <li>Equazioni goniometriche elementari</li>
-            <li>Equazioni goniometriche lineari</li>
-            <li>Disequazioni goniometriche</li>
-            <li>Funzioni goniometriche (es. arcotangente)</li>
-            <li>Relazioni tra seno, coseno e tangente</li>
+            <li>**La Mia Spiegazione:** La derivata è il coefficiente angolare della retta tangente. L'integrale è l'area sottesa.</li>
+            <li>Derivate: Regole di derivazione, Teorema di Rolle e Lagrange.</li>
+            <li>Integrali: Integrazione per parti e per sostituzione.</li>
           </ul>
         </article>
 
-        <article class="topic-card">
-          <h3>Analisi e studio di funzione</h3>
+        <article class="topic-card" contenteditable="false">
+          <h3>Argomenti avanzati <span style="font-size: 0.7em; color: #FFC300;">(A prova di esame)</span></h3>
           <ul>
-            <li>Studio completo di funzione (dominio, limiti, asintoti)</li>
-            <li>Funzioni razionali e irrazionali</li>
-            <li>Funzioni goniometriche</li>
-            <li>Esercizi guidati su grafici e proprietà delle funzioni</li>
+            <li>**Quick Problem:** Studia la convergenza della serie armonica generalizzata $ \sum_{n=1}^{\infty} \frac{1}{n^p} $. Converge solo se $ p > 1 $.</li>
+            <li>**La Mia Spiegazione:** La Trasformata di Laplace è un "teletrasporto" che trasforma una derivata in una moltiplicazione (algebra pura!).</li>
+            <li>Serie numeriche (esercizi sulle serie).</li>
           </ul>
         </article>
 
-        <article class="topic-card">
-          <h3>Argomenti avanzati</h3>
+        <article class="topic-card" contenteditable="false">
+          <h3>Calcolo combinatorio <span style="font-size: 0.7em; color: #FFC300;">(Quando usare cosa)</span></h3>
           <ul>
-            <li>Serie numeriche (esercizi sulle serie)</li>
-            <li>Trasformata e antitrasformata di Laplace</li>
-            <li>Equazioni irrazionali e razionali complesse</li>
-          </ul>
-        </article>
-
-        <article class="topic-card">
-          <h3>Calcolo combinatorio</h3>
-          <ul>
-            <li>Disposizioni semplici di n elementi di classe k</li>
-            <li>Permutazioni, combinazioni, schemi riassuntivi</li>
-            <li>Applicazioni a problemi di conteggio</li>
+            <li>**Domanda Guida:** L'ordine conta? (Se sì: Permutazioni/Disposizioni. Se no: Combinazioni).</li>
+            <li>Disposizioni semplici di n elementi di classe k.</li>
+            <li>Permutazioni, combinazioni, schemi riassuntivi.</li>
           </ul>
         </article>
       </div>
 
       <p class="footer-text">
-        Vai direttamente al canale:
+        Ispirazione da Scelgo Matematica:
         <a href="https://www.youtube.com/@scelgomatematica" target="_blank" rel="noopener noreferrer">
           youtube.com/@scelgomatematica
         </a>
       </p>
     </div>
   </section>
+  
+  <script>
+    // --- Funzionalità di Editing (Client-Side) ---
+    // Simula l'identificazione dell'Editor: Solo se il token è presente
+    const isEditor = typeof __initial_auth_token !== 'undefined' && __initial_auth_token.length > 0;
 
-  <footer class="footer">
-    <p>© 2025 – Il mio sito di matematica • Ispirato a Scelgo Matematica</p>
-  </footer>
+    // Se l'utente è l'editor, mostra il pulsante e abilita l'editing
+    if (isEditor) {
+      document.addEventListener('DOMContentLoaded', () => {
+        const nav = document.querySelector('.nav-links');
+        const editButton = document.createElement('button');
+        editButton.textContent = 'Abilita Editing';
+        editButton.id = 'edit-toggle';
+        editButton.className = 'editor-button';
+        
+        // Aggiunge il pulsante al lato sinistro dei link di navigazione
+        const editContainer = document.createElement('div');
+        editContainer.className = 'edit-container';
+        editContainer.appendChild(editButton);
+        nav.parentElement.insertBefore(editContainer, nav);
+
+
+        let editingMode = false;
+        
+        // Seleziona tutti gli elementi che possono essere modificati
+        const editableElements = document.querySelectorAll('.hero-content p, .hero-content h1, .topic-card, .footer-text');
+        
+        // I "topic-card" sono i contenuti principali. Inizialmente sono non modificabili (contenteditable="false" nell'HTML)
+        
+        editButton.addEventListener('click', () => {
+          editingMode = !editingMode;
+          
+          if (editingMode) {
+            editButton.textContent = 'Salva Modifiche (Solo Locale)';
+            editButton.classList.add('active');
+            editableElements.forEach(el => {
+              el.setAttribute('contenteditable', 'true');
+              el.classList.add('editable-active');
+            });
+            alert('Modalità di Editing Attivata. Le modifiche sono salvate localmente per questa sessione. Per renderle permanenti (non implementato), sarebbe necessaria una connessione al server/database.');
+          } else {
+            editButton.textContent = 'Abilita Editing';
+            editButton.classList.remove('active');
+            editableElements.forEach(el => {
+              el.setAttribute('contenteditable', 'false');
+              el.classList.remove('editable-active');
+            });
+            alert('Modalità di Editing Disattivata.');
+          }
+        });
+      });
+    }
+  </script>
 
 </body>
 </html>
-

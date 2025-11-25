@@ -5,8 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>MathHub – About me</title>
   <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-</head>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">\r\n</head>
 <body>
 
   <header class="navbar">
@@ -14,44 +13,142 @@
     <nav class="nav-links">
       <a href="index.html">Home</a>
       <a href="about.html">About me</a>
-      <a href="index.html#scelgomatematica">Scelgo Matematica</a>
-      <a href="exercises.html">Esercizi</a>
+      <a href="index.html#scelgomatematica">Mio Studio</a>
+      <!-- Nuova struttura di navigazione con dropdown per Argomenti -->
+      <div class="dropdown">
+        <span class="dropbtn">Argomenti</span>
+        <div class="dropdown-content">
+          <!-- Livello 1: Scegli l'Argomento (Topics placeholder) -->
+          <div class="dropdown-topic">
+            <span class="topic-title">Analisi Matematica I</span>
+            <div class="dropdown-submenu">
+              <!-- Livello 2: Teoria ed Esercizi -->
+              <a href="theory_analisi1.html">Teoria</a>
+              <a href="exercises.html?topic=Analisi1">Esercizi</a>
+            </div>
+          </div>
+          <div class="dropdown-topic">
+            <span class="topic-title">Geometria Analitica</span>
+            <div class="dropdown-submenu">
+              <a href="theory_geometria.html">Teoria</a>
+              <a href="exercises.html?topic=Geometria">Esercizi</a>
+            </div>
+          </div>
+          <div class="dropdown-topic">
+            <span class="topic-title">Algebra Lineare</span>
+            <div class="dropdown-submenu">
+              <a href="theory_algebra.html">Teoria</a>
+              <a href="exercises.html?topic=Algebra">Esercizi</a>
+            </div>
+          </div>
+          <a href="exercises.html">Math Agent</a> <!-- Link diretto al Math Agent -->
+        </div>
+      </div>
     </nav>
   </header>
 
   <section class="section section-light">
     <div class="container">
-      <h2>About me</h2>
+      <h2 contenteditable="false">About me: La mia storia con i numeri</h2>
       <div class="two-columns">
+        
         <div>
-          <p>
-            Scrivi qui una breve descrizione su di te: chi sei, che scuola
-            o università frequenti, perché ti interessa la matematica e
-            quali argomenti ti piacciono di più (analisi, algebra, fisica, ecc.).
+          <h3 contenteditable="false">Il mio Percorso di Studi</h3>
+          <p contenteditable="false">
+            Ho iniziato il mio percorso alla Scuola Militare “Nunziatella”, 
+            per poi proseguire all’Accademia Militare di Modena e alla Scuola di Applicazione di Torino,
+            dove mi sono formato come ufficiale del Genio. L'amore per i numeri 
+            è cresciuto studiando Meccanica Razionale e Fisica Tecnica.
           </p>
-          <p>
-            Puoi usare questa pagina come portfolio personale: aggiungi
-            link ai tuoi progetti, ai tuoi appunti, al tuo profilo
-            LinkedIn o ad altri social, e aggiorna il testo quando fai
-            qualcosa di nuovo.
+
+          <h3 contenteditable="false">I Miei Obiettivi</h3>
+          <p contenteditable="false">
+            Il mio obiettivo è padroneggiare concetti complessi di matematica, 
+            e questo sito è la mia "Lavagna Personale" dove ogni spiegazione 
+            è un passo in più verso la chiarezza totale.
           </p>
+
+          <div style="border-top: 1px solid #ccc; margin: 25px 0;">
+          
+            <h3 contenteditable="false">Il mio "Struggle Board" (Errori e Soluzioni)</h3>
+            <p contenteditable="false">
+              **Mistake Story:** (Racconta un errore che hai fatto e come l'hai trasformato in una lezione). Esempio: "Per mesi confondevo l'integrale indefinito con quello definito. La svolta è stata quando ho visualizzato l'integrale definito come la *variazione* di una quantità, non la quantità stessa."
+            </p>
+            <p contenteditable="false">
+              **I miei Appunti e Storie:** Aggiungi qui le tue piccole storie o analogie per spiegare concetti difficili che hai finalmente capito.
+            </p>
+            
+            <p style="margin-top: 30px; font-size: 0.9em; opacity: 0.7;" contenteditable="false">
+              *Portoflio Personale: Aggiorna questa pagina con link ai tuoi progetti, ai tuoi appunti, al tuo profilo LinkedIn o ad altri social.*
+            </p>
+          </div>
         </div>
-        <div class="about-box">
+        <div class="about-box" contenteditable="false">
           <h3>Info rapide</h3>
           <ul>
             <li><strong>Nome:</strong> [Metti il tuo nome]</li>
             <li><strong>Scuola/Uni:</strong> [Metti la tua scuola]</li>
-            <li><strong>Interessi:</strong> Matematica, fisica, coding…</li>
-            <li><strong>Obiettivo:</strong> Capire la matematica in modo profondo e condividerla.</li>
+            <li><strong>Interessi:</strong> Matematica, fisica, coding, Gemini API.</li>
+            <li><strong>Obiettivo:</strong> Capire la matematica in modo profondo e creare strumenti di apprendimento.</li>
           </ul>
         </div>
       </div>
     </div>
   </section>
 
-  <footer class="footer">
-    <p>© 2025 – Il mio sito di matematica</p>
-  </footer>
+  <script>
+    // --- Funzionalità di Editing (Client-Side) ---
+    // Simula l'identificazione dell'Editor: Solo se il token è presente
+    const isEditor = typeof __initial_auth_token !== 'undefined' && __initial_auth_token.length > 0;
+
+    // Se l'utente è l'editor, mostra il pulsante e abilita l'editing
+    if (isEditor) {
+      document.addEventListener('DOMContentLoaded', () => {
+        const nav = document.querySelector('.nav-links');
+        const editButton = document.createElement('button');
+        editButton.textContent = 'Abilita Editing';
+        editButton.id = 'edit-toggle';
+        editButton.className = 'editor-button';
+        
+        // Aggiunge il pulsante al lato sinistro dei link di navigazione
+        const editContainer = document.createElement('div');
+        editContainer.className = 'edit-container';
+        editContainer.appendChild(editButton);
+        nav.parentElement.insertBefore(editContainer, nav);
+
+
+        let editingMode = false;
+        
+        // Seleziona tutti gli elementi che possono essere modificati in questa pagina
+        const editableElements = document.querySelectorAll('h2, h3, p, li, strong, .about-box, .section-light > .container > div:first-child > div:last-child');
+        
+        // Imposta tutti gli elementi a contenteditable="false" inizialmente per sicurezza
+        editableElements.forEach(el => el.setAttribute('contenteditable', 'false'));
+        
+        editButton.addEventListener('click', () => {
+          editingMode = !editingMode;
+          
+          if (editingMode) {
+            editButton.textContent = 'Salva Modifiche (Solo Locale)';
+            editButton.classList.add('active');
+            editableElements.forEach(el => {
+              el.setAttribute('contenteditable', 'true');
+              el.classList.add('editable-active');
+            });
+            alert('Modalità di Editing Attivata. Le modifiche sono salvate localmente per questa sessione. Per renderle permanenti (non implementato), sarebbe necessaria una connessione al server/database.');
+          } else {
+            editButton.textContent = 'Abilita Editing';
+            editButton.classList.remove('active');
+            editableElements.forEach(el => {
+              el.setAttribute('contenteditable', 'false');
+              el.classList.remove('editable-active');
+            });
+            alert('Modalità di Editing Disattivata.');
+          }
+        });
+      });
+    }
+  </script>
 
 </body>
 </html>

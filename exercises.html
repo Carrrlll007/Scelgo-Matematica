@@ -6,6 +6,10 @@
   <title>MathHub – Esercizi</title>
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Icone per il widget -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <!-- MathJax per il rendering delle formule -->
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
 </head>
 <body>
 
@@ -14,115 +18,232 @@
     <nav class="nav-links">
       <a href="index.html">Home</a>
       <a href="about.html">About me</a>
-      <a href="index.html#scelgomatematica">Scelgo Matematica</a>
-      <a href="exercises.html">Esercizi</a>
+      <a href="index.html#scelgomatematica">Mio Studio</a>
+      <!-- Nuova struttura di navigazione con dropdown per Argomenti -->
+      <div class="dropdown">
+        <span class="dropbtn">Argomenti</span>
+        <div class="dropdown-content">
+          <!-- Livello 1: Scegli l'Argomento (Topics placeholder) -->
+          <div class="dropdown-topic">
+            <span class="topic-title">Analisi Matematica I</span>
+            <div class="dropdown-submenu">
+              <!-- Livello 2: Teoria ed Esercizi -->
+              <a href="theory_analisi1.html">Teoria</a>
+              <a href="exercises.html?topic=Analisi1">Esercizi</a>
+            </div>
+          </div>
+          <div class="dropdown-topic">
+            <span class="topic-title">Geometria Analitica</span>
+            <div class="dropdown-submenu">
+              <a href="theory_geometria.html">Teoria</a>
+              <a href="exercises.html?topic=Geometria">Esercizi</a>
+            </div>
+          </div>
+          <div class="dropdown-topic">
+            <span class="topic-title">Algebra Lineare</span>
+            <div class="dropdown-submenu">
+              <a href="theory_algebra.html">Teoria</a>
+              <a href="exercises.html?topic=Algebra">Esercizi</a>
+            </div>
+          </div>
+          <a href="exercises.html">Math Agent</a> <!-- Link diretto al Math Agent -->
+        </div>
+      </div>
     </nav>
   </header>
 
   <section class="section section-light">
     <div class="container">
-      <h2>Esercizi e Math Agent</h2>
+      <h2 id="page-title">Esercizi - Seleziona un Argomento</h2>
 
-      <!-- AGENT AREA -->
-      <div class="agent-area">
-        <div class="agent-text">
-          <h3>Math Agent</h3>
-          <p>
-            Qui in futuro puoi collegare un vero agente di matematica (per esempio un’API di
-            intelligenza artificiale) che risolve qualsiasi esercizio che inserisci.
-            Per ora è un <em>demo</em>: scrivi il testo del problema e vedi una risposta placeholder.
-          </p>
+      <!-- Area per gli esercizi dell'utente, dinamica in base al topic -->
+      <div id="exercise-content" class="exercise-area" contenteditable="false">
+        <p>Seleziona un argomento dal menu "Argomenti" per visualizzare gli esercizi specifici, oppure usa il Math Agent per una domanda rapida!</p>
+        
+        <!-- ESEMPIO di contenuto di esercizio (sarà dinamico) -->
+        <div id="example-exercise" style="padding: 20px; border: 1px dashed #ccc; margin-top: 20px; border-radius: 8px; background: #f9f9f9;">
+            <h3>Esempio di Esercizio: Integrali</h3>
+            <p>Calcola il seguente integrale definito:</p>
+            $$ \int_{0}^{1} x e^{x} \,dx $$
+            <p><strong>La mia Soluzione:</strong> <span style="color: green;">La soluzione è $1$. (Usa l'integrazione per parti).</span></p>
         </div>
-
-        <form id="agent-form" class="agent-form">
-          <label for="agent-input">Scrivi qui il tuo problema di matematica:</label>
-          <textarea id="agent-input" placeholder="Es: Risolvi la disequazione (x-1)(x+2) &gt; 0"></textarea>
-          <button type="submit" class="btn-primary small-btn">Chiedi al Math Agent</button>
-          <div id="agent-output" class="agent-output">
-            La risposta del tuo agente comparirà qui.
-          </div>
-        </form>
-      </div>
-
-      <h3 class="ex-subtitle">Esercizi per argomento (ispirati a Scelgo Matematica)</h3>
-
-      <div class="exercise-grid">
-
-        <article class="exercise-card">
-          <h4>Equazioni e disequazioni</h4>
-          <ol>
-            <li>Risolvi la disequazione: \((2x - 3)(x + 1) &gt; 0\).</li>
-            <li>Risolvi la disequazione fratta: \(\dfrac{x - 2}{x + 3} \le 0\).</li>
-            <li>Risolvi l’equazione con valore assoluto: \(|2x - 5| = 3\).</li>
-          </ol>
-        </article>
-
-        <article class="exercise-card">
-          <h4>Goniometria</h4>
-          <ol>
-            <li>Risolvi \(\sin x = \frac{\sqrt{3}}{2}\) per \(x \in [0, 2\pi]\).</li>
-            <li>Risolvi \(2\cos x - 1 = 0\) per \(x \in \mathbb{R}\).</li>
-            <li>Risolvi \(\tan x &gt; 1\) per \(x \in [0, 2\pi]\).</li>
-          </ol>
-        </article>
-
-        <article class="exercise-card">
-          <h4>Analisi e studio di funzione</h4>
-          <ol>
-            <li>Studia il dominio di \(f(x) = \dfrac{1}{x^2 - 4}\).</li>
-            <li>Calcola i limiti \(\lim_{x \to 2^-} \dfrac{1}{x-2}\) e \(\lim_{x \to 2^+} \dfrac{1}{x-2}\).</li>
-            <li>Trova gli asintoti di \(g(x) = \dfrac{3x^2 - 1}{x - 1}\).</li>
-          </ol>
-        </article>
-
-        <article class="exercise-card">
-          <h4>Serie e trasformata di Laplace</h4>
-          <ol>
-            <li>Studia la convergenza di \(\sum_{n=1}^{\infty} \frac{1}{n^2}\).</li>
-            <li>Studia la convergenza di \(\sum_{n=1}^{\infty} \frac{1}{n}\).</li>
-            <li>Calcola la trasformata di Laplace di \(f(t) = e^{2t}\).</li>
-          </ol>
-        </article>
-
-        <article class="exercise-card">
-          <h4>Calcolo combinatorio</h4>
-          <ol>
-            <li>Quante disposizioni semplici di classe 3 con 5 oggetti distinti?</li>
-            <li>Quante combinazioni di 4 oggetti si ottengono scegliendo da 10, senza ripetizioni?</li>
-            <li>In quanti modi si possono mettere in fila 6 persone diverse?</li>
-          </ol>
-        </article>
 
       </div>
     </div>
   </section>
 
-  <footer class="footer">
-    <p>© 2025 – Il mio sito di matematica</p>
-  </footer>
+  <!-- MATH AGENT WIDGET (Fisso in basso a destra) -->
+  <div id="mini-agent-widget">
+    <div id="agent-icon" onclick="toggleMiniChat()">
+      <i class="fas fa-robot"></i>
+    </div>
+    <div id="mini-chat-box">
+      <div id="chat-header">
+        Math Agent
+        <span onclick="toggleMiniChat()">&times;</span>
+      </div>
+      <div id="chat-body">
+        <div class="chat-message bot-message">Ciao! Chiedimi pure qualsiasi esercizio o concetto di matematica.</div>
+      </div>
+      <div id="chat-footer">
+        <input type="text" id="mini-agent-input" placeholder="Chiedi al tuo assistente..." />
+        <button onclick="sendMiniChat()"><i class="fas fa-paper-plane"></i></button>
+      </div>
+    </div>
+  </div>
+
 
   <script>
-    const agentForm = document.getElementById("agent-form");
-    const agentInput = document.getElementById("agent-input");
-    const agentOutput = document.getElementById("agent-output");
+    // --- Funzionalità di base del Math Agent ---
 
-    agentForm.addEventListener("submit", function (e) {
-      e.preventDefault();
-      const question = agentInput.value.trim();
+    // 1. Funzione per l'API (Simulazione / Placeholder)
+    async function callMathAgent(prompt, mode, image, history) {
+        // Simula un ritardo di rete
+        await new Promise(resolve => setTimeout(resolve, 1500)); 
 
-      if (!question) {
-        agentOutput.textContent = "Per favore scrivi prima un problema di matematica 🙂";
-        return;
-      }
+        const questionLower = prompt.toLowerCase();
+        let answer = "Mi scuso, ma la funzione API al momento è simulata. Ecco un esempio di risposta matematica: Ricorda che il Teorema di Pitagora afferma che in un triangolo rettangolo $a^2 + b^2 = c^2$.";
 
-      // Qui puoi collegare una vera API in futuro
-      agentOutput.innerHTML =
-        "<strong>Demo:</strong> hai chiesto:<br><em>" +
-        question +
-        "</em><br><br>" +
-        "Qui potrai mostrare la soluzione generata dal tuo agente di matematica.";
+        if (questionLower.includes("risolvi") || questionLower.includes("calcola")) {
+            answer = "Sto processando la tua richiesta... Per l'esercizio di prova: $\\int_{0}^{1} x e^{x} \,dx$. Usando l'integrazione per parti $\\int u dv = uv - \\int v du$: Sia $u=x$ e $dv=e^x dx$. Allora $du=dx$ e $v=e^x$. La soluzione è: $[xe^x]_0^1 - [e^x]_0^1 = (e-0) - (e-1) = 1$.";
+        } else if (questionLower.includes("funzione") || questionLower.includes("teoria")) {
+            answer = "Certo! Una funzione $f: A \\to B$ associa ad ogni elemento di $A$ uno e un solo elemento di $B$. Ad esempio, $f(x) = x^2$ è una funzione che mappa i numeri reali a numeri reali non negativi.";
+        }
+        
+        // Aggiunge la formattazione Latex
+        return answer;
+    }
+
+
+    // 2. Funzionalità Chat
+    const miniChatBox = document.getElementById("mini-chat-box");
+    function toggleMiniChat() {
+        miniChatBox.classList.toggle('open');
+        const icon = document.getElementById("agent-icon");
+        icon.classList.toggle('active');
+    }
+
+    async function sendMiniChat() {
+        const input = document.getElementById("mini-agent-input");
+        const body = document.getElementById("chat-body");
+        const question = input.value.trim();
+        
+        if (!question) return;
+
+        // Aggiungi messaggio utente
+        body.innerHTML += `<div class="chat-message user-message">${question}</div>`;
+        input.value = "";
+        body.scrollTop = body.scrollHeight; // Scroll to bottom
+
+        // Messaggio di attesa
+        const loadingId = "loading-" + Date.now();
+        body.innerHTML += `<div class="chat-message bot-message" id="${loadingId}">...</div>`;
+        
+        // Chiamata API (Simulata, usa null per i parametri non necessari)
+        const answer = await callMathAgent(question, null, null, null);
+        
+        // Rimuovi loading e metti risposta
+        const loadingDiv = document.getElementById(loadingId);
+        loadingDiv.innerHTML = answer;
+        
+        // Rerender MathJax nella mini chat
+        if (typeof MathJax !== 'undefined') MathJax.typesetPromise([loadingDiv]);
+        
+        body.scrollTop = body.scrollHeight;
+    }
+
+    // Permette di inviare con "Invio" nella mini chat
+    document.getElementById("mini-agent-input").addEventListener("keypress", function(event) {
+        if (event.key === "Enter") {
+            event.preventDefault(); // Impedisce il submit del form (se fosse un form)
+            sendMiniChat();
+        }
     });
-  </script>
 
+
+    // 3. Gestione Contenuto Esercizi in base al Topic
+    document.addEventListener('DOMContentLoaded', () => {
+        const urlParams = new URLSearchParams(window.location.search);
+        const topic = urlParams.get('topic');
+        const titleElement = document.getElementById('page-title');
+        const contentElement = document.getElementById('exercise-content');
+        
+        if (topic) {
+            const displayTopic = decodeURIComponent(topic.replace(/\+/g, ' '));
+            titleElement.textContent = `Esercizi - ${displayTopic}`;
+            contentElement.innerHTML = `
+                <h3>Esercizi per ${displayTopic}</h3>
+                <p>Qui troverai la tua raccolta di esercizi per l'argomento <strong>${displayTopic}</strong>.</p>
+                <div class="exercise-card">
+                    <h4>Esercizio 1: ${displayTopic}</h4>
+                    <p>Inserisci qui un problema specifico. Ad esempio, se l'argomento è 'Analisi1': Calcola la derivata di $f(x) = x \\sin(x)$.</p>
+                    <p><strong>La tua Soluzione:</strong> <span style="color: blue;">(La soluzione è $f'(x) = \\sin(x) + x \\cos(x)$)</span></p>
+                </div>
+                <div class="exercise-card">
+                    <h4>Esercizio 2: ${displayTopic}</h4>
+                    <p>Inserisci un altro problema qui...</p>
+                    <p><strong>La tua Soluzione:</strong></p>
+                </div>
+            `;
+            // Assicurati che MathJax renderizzi il nuovo contenuto
+            if (typeof MathJax !== 'undefined') MathJax.typesetPromise([contentElement]);
+        } else {
+             // Nessun topic selezionato, usa il contenuto di default
+             titleElement.textContent = "Esercizi e Math Agent";
+        }
+    });
+
+    // --- Funzionalità di Editing (Client-Side) ---
+    // Simula l'identificazione dell'Editor: Solo se il token è presente
+    const isEditor = typeof __initial_auth_token !== 'undefined' && __initial_auth_token.length > 0;
+
+    // Se l'utente è l'editor, mostra il pulsante e abilita l'editing
+    if (isEditor) {
+      document.addEventListener('DOMContentLoaded', () => {
+        const nav = document.querySelector('.nav-links');
+        const editButton = document.createElement('button');
+        editButton.textContent = 'Abilita Editing';
+        editButton.id = 'edit-toggle';
+        editButton.className = 'editor-button';
+        
+        // Aggiunge il pulsante al lato sinistro dei link di navigazione
+        const editContainer = document.createElement('div');
+        editContainer.className = 'edit-container';
+        editContainer.appendChild(editButton);
+        nav.parentElement.insertBefore(editContainer, nav);
+
+
+        let editingMode = false;
+        
+        // Seleziona tutti gli elementi che possono essere modificati in questa pagina
+        const editableElements = document.querySelectorAll('#page-title, #exercise-content');
+        
+        // Imposta tutti gli elementi a contenteditable="false" inizialmente per sicurezza
+        editableElements.forEach(el => el.setAttribute('contenteditable', 'false'));
+        
+        editButton.addEventListener('click', () => {
+          editingMode = !editingMode;
+          
+          if (editingMode) {
+            editButton.textContent = 'Salva Modifiche (Solo Locale)';
+            editButton.classList.add('active');
+            editableElements.forEach(el => {
+              el.setAttribute('contenteditable', 'true');
+              el.classList.add('editable-active');
+            });
+            alert('Modalità di Editing Attivata. Le modifiche sono salvate localmente per questa sessione. Per renderle permanenti (non implementato), sarebbe necessaria una connessione al server/database.');
+          } else {
+            editButton.textContent = 'Abilita Editing';
+            editButton.classList.remove('active');
+            editableElements.forEach(el => {
+              el.setAttribute('contenteditable', 'false');
+              el.classList.remove('editable-active');
+            });
+            alert('Modalità di Editing Disattivata.');
+          }
+        });
+      });
+    }
+  </script>
 </body>
 </html>
